@@ -7,6 +7,32 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+
+  
+  gem "sqlite3-ruby", :require => "sqlite3"
+  gem 'rspec-rails','~>2.8'
+
+  #for guard
+  gem 'guard-rspec','1.2.1'
+  
+  #for spork
+  gem 'guard-spork', '1.2.0'
+  gem 'spork', '0.9.2'
+
+
+end
+
+group :test do
+	#gem 'rspec-rails','~>2.8'
+  gem 'capybara', '1.1.2'
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
